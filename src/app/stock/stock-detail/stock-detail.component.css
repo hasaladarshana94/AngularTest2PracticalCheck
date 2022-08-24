@@ -1,0 +1,21 @@
+.groove {
+    border-style: groove;
+    padding: 10px;
+}
+button{
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.arrow-up {
+    content: "\1F873";
+}
+
+.arrow {
+    font-size: 50px;
+}
+
+.padding-left {
+    padding-left: 0;
+}

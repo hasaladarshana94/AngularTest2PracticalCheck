@@ -1,0 +1,10 @@
+<div class="col-sm-12">
+    <app-stock-track></app-stock-track>
+</div>
+<hr>
+<div class="col-sm-12">
+    <br>
+    <div class="col-sm-4" *ngFor="let stock of stocks">
+        <app-stock-detail [stockDetail]="stock"></app-stock-detail>
+    </div>
+</div>

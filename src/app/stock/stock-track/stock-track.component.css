@@ -1,0 +1,17 @@
+span.ie-example {
+    color: rgb(204, 204, 204);
+}
+.groove {
+    border-style: groove;
+    text-align: center;
+}
+
+.search-box {   
+  width: 17%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

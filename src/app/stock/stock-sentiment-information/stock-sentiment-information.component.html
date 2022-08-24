@@ -1,0 +1,46 @@
+<div class="col-sm-12" style="margin-top: 30px;">
+    <div class="col-sm-12 groove" *ngIf="!Loading; else loadingTemp">
+        <div *ngIf="isDataFound; else invalidSymbol">
+            <div class="col-sm-12">
+                <h2>{{stockDetails?.company?.description}} &nbsp; ({{stockDetails?.symbol}})</h2>
+                <hr style="height: 1px;">
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 20px;">
+                <div>
+                    <!-- loop here -->
+                    <div class="col-sm-4 border-right" *ngFor="let detail of sentimentDetails">
+                        <div style="padding: 10px 10px;">
+                            <!-- code here -->
+                            <div class="col-sm-6"  style="padding-left: 0;">
+                                <p style="font-weight: bold;">{{detail?.month | monthstr | uppercase}}</p>
+                                <p>Change : {{detail?.change > 0 ? '+': null}}{{detail?.change}}</p>
+                                <p>MSPR : {{detail?.mspr | number}}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p appChangeTextColor [value]="detail?.change">
+                                    <span class="arrow" *ngIf="detail?.change > 0" >🡱</span>
+                                    <span class="arrow" *ngIf="detail?.change < 0">🡳</span>
+                                </p>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12" style="padding-left: 0px; margin-top: 15px;">
+        <button class="btn btn-primary" (click)="navigateToHome()"> Back to list of stocks</button>
+    </div>
+</div>
+
+<ng-template #loadingTemp>
+    <div class="col-sm-12">
+        <p>Loading.....</p>
+    </div>
+</ng-template>
+
+<ng-template #invalidSymbol>
+    <div class="col-sm-12">
+        <p style="padding: 10px;">No Data Found</p>
+    </div>
+</ng-template>

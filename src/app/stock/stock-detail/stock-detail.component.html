@@ -1,0 +1,30 @@
+<div class="col-sm-12 groove">
+    <div class="col-sm-12">
+        <div class="col-sm-11 padding-left">
+            <h4>{{stockDetail?.company?.description}} &nbsp; ({{stockDetail?.symbol}})</h4>
+        </div>
+        <div class="col-sm-1">
+            <button class="btn" (click)="deleteStock(stockDetail?.symbol)">X</button>
+        </div>
+    </div>
+
+    <div class="col-sm-12" style="margin-top: 10px;">
+        <div class="col-sm-5 padding-left">
+            <p>Change Today : {{stockDetail?.quote?.dp > 0 ? '+': null}}{{stockDetail?.quote?.dp | number}}%</p>
+            <p>Current Price : {{stockDetail?.quote?.c | currency :'USD'}}</p>
+        </div>
+        <div class="col-sm-5">
+            <p>Opening Price : {{stockDetail?.quote?.o | currency :'USD'}}</p>
+            <p>High Price : {{stockDetail?.quote?.h | currency :'USD'}}</p>
+        </div>
+        <div class="col-sm-2">
+            <p appChangeTextColor [value]="stockDetail?.quote?.dp">
+                <span class="arrow" *ngIf="stockDetail?.quote?.dp > 0">🡱</span>
+                <span class="arrow" *ngIf="stockDetail?.quote?.dp < 0">🡳</span>
+            </p>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <button style="margin-bottom: 5px;" class="btn btn-primary" (click)="navigateToSocialSentiment()">Go to Social Sentiment Details</button>
+    </div>
+</div>
